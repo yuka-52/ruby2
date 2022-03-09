@@ -23,11 +23,11 @@ if draw
   puts "あいこで"
   @result = "draw"
 elsif win
-  puts "勝ちました！"
+  puts "あなたが勝ちました！"
   puts "---------------"
   @result = "win"
 else
-  puts "負けました！"
+  puts "相手が勝ちました！"
   puts "---------------"
   @result = "lose"
 end
@@ -42,18 +42,20 @@ elsif @result == "win"
   hoi = ["上", "下", "右", "左"]
   puts "ホイ"
   puts "---------------"
-  if player_finger == program_face
-    puts "あなた：#{hoi[player_finger]}"
-    puts "相手  ：#{hoi[program_face]}"
-    puts "勝ちました！"
-    puts "---------------"
-  else
-    puts "あなた：#{hoi[player_finger]}"
-    puts "相手  ：#{hoi[program_face]}"
-    puts "残念！"
-    puts "---------------"
-    janken
-    end
+
+if player_finger == program_face
+  puts "あなた：#{hoi[player_finger]}"
+  puts "相手  ：#{hoi[program_face]}"
+  puts "あなたが勝ちました！"
+  puts "---------------"
+else
+  puts "あなた：#{hoi[player_finger]}"
+  puts "相手  ：#{hoi[program_face]}"
+  puts "勝敗つかず"
+  puts "もう一回じゃんけんから始めてください"
+  puts "---------------"
+  janken
+end
 elsif @result == "lose"
   puts "相手：あっち向いて〜"
   puts "あなた：0(上) 1(下) 2(右) 3(左)"
@@ -62,22 +64,22 @@ elsif @result == "lose"
   hoi= ["上", "下", "右", "左"]
   puts "ホイ"
   puts "---------------"
-  if player_face == program_finger
-    puts "あなた：#{hoi[player_face]}"
-    puts "相手  ：#{hoi[program_finger]}"
-    puts "あなたの負けです"
-    puts "---------------"
-　　else
-　　　　puts "あなた：#{hoi[player_face]}"
-　　　　puts "相手  ：#{hoi[program_finger]}"
-　　　　puts "▶︎勝敗つかず"
-　　　　puts "---------------"
-    　end
-    end
-    end
+if player_face == program_finger
+  puts "あなた：#{hoi[player_face]}"
+  puts "相手  ：#{hoi[program_finger]}"
+  puts "あなたの負けです"
+  puts "---------------"
+else
+  puts "あなた：#{hoi[player_face]}"
+  puts "相手  ：#{hoi[program_finger]}"
+  puts "勝敗つかず"
+  puts "もう一回じゃんけんから始めてください"
+  puts "---------------"
+  janken
+end
+end
 end
 
+end
 jankengame = Jankengame.new
 jankengame.janken
-
-end
