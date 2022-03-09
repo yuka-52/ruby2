@@ -63,8 +63,8 @@ if @result == 'lose'
     puts "あっち向いて〜"
     puts "0(上)1(下)2(左)3(右)"
     
-    player_face == gets.to_i
-    program_finger == rand(4)
+    player_face = gets.to_i
+    program_finger = rand(4)
 
     hois =["上","下","右","左"]
     puts "ホイ！"
